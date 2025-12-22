@@ -5,7 +5,7 @@ from config.devices import DEVICES
 
 def pytest_addoption(parser):
     parser.addoption(
-        "--device",
+        "--test-device",
         action="store",
         default="iphone",
         help="Device to run tests on: android or iphone"
@@ -14,7 +14,7 @@ def pytest_addoption(parser):
 
 @pytest.fixture()
 def device_config(request):
-    device_name = request.config.getoption("--device").lower()
+    device_name = request.config.getoption("--test-device").lower()
     if device_name not in DEVICES:
         raise ValueError(
             f"Unsupported device: {device_name}. Supported devices are: {list(DEVICES.keys())}")
