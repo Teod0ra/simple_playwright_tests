@@ -2,8 +2,8 @@ class BasePage:
     def __init__(self, page):
         self.page = page
 
-    def find_element(self, locator):
-        return self.page.locator(*locator)
+    def find_element(self, selector: str):
+        return self.page.locator(selector)
 
     def click(self, locator):
         element = self.find_element(locator)
