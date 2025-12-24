@@ -13,7 +13,7 @@ def pytest_addoption(parser):
 
 
 @pytest.fixture()
-def device_config(request):
+def emulator_configuration(request):
     device_name = request.config.getoption("--test-device").lower()
     if device_name not in DEVICES:
         raise ValueError(
