@@ -3,8 +3,10 @@ from pages.base_page import BasePage
 
 class MainPage(BasePage):
 
-    search_bar = 'input[autocomplete="twitch-nav-search"]'
-
-    def search_for_streamers(self, text):
-        self.fill(self.search_bar, text)
-        self.page.press("[autocomplete='twitch-nav-search']", "Enter")
+    def go_to_search_page(self):
+        search_page = self.page.locator('a:has-text("Browse")')
+        search_page.click()
+        self.page.wait_for_load_state("domcontentloaded")
+        from pages.search_page import SearchPage
+        return SearchPage(self.page)
+        
