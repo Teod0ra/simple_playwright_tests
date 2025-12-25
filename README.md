@@ -75,3 +75,5 @@ pytest -v --test-device android
 ```bash
 pytest ./tests/test_video_streaming_device.py --test-device android
 ```
+### Test runned locally
+![](running-test.gif)
