@@ -20,7 +20,7 @@ class SearchPage(BasePage):
         # Here the documentation is not that clear - click on any video
         # There are many ways to solve this
         streaming_videos_list = [streaming_videos.nth(i) for i in range(count)]
-        choosen_streaming_video = streaming_videos_list[count-1]
+        choosen_streaming_video = streaming_videos_list[0]
         choosen_streaming_video.click()
         screenshot_name = self.page.url.strip().split("/")[-1]
         self.wait_for_fully_loaded_stream()

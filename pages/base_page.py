@@ -32,8 +32,8 @@ class BasePage:
     def accept_cookies_if_present(self):
         accept_btn = self.page.locator(
             '[data-a-target="consent-banner-accept"]')
-        if accept_btn.is_visible():
-            accept_btn.click()
+        accept_btn.wait_for(state="visible")
+        accept_btn.click()
 
     def scroll_down(self, times=1):
         for _ in range(times):
