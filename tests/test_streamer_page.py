@@ -5,8 +5,6 @@ from pages.search_page import SearchPage
 
 def test_search_bar(emulator_configuration):
     main_page = MainPage(emulator_configuration)
-    main_page.navigate("https://www.twitch.tv")
-    main_page.accept_cookies_if_present()
     search_page = main_page.go_to_search_page()
     search_page.search_for_streamer_channels("StarCraft II")
     search_page.scroll_down(times=2)
