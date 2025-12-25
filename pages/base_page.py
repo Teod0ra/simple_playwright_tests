@@ -1,4 +1,5 @@
 import os
+import datetime
 
 
 class BasePage:
@@ -21,6 +22,8 @@ class BasePage:
         self.page.goto(url)
 
     def take_screenshot(self, filename="screenshot.png"):
+        timestamp = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+        filename = f"{filename}_{timestamp}.png"
         path = os.path.join("reports", "screenshots", filename)
         os.makedirs(os.path.dirname(path), exist_ok=True)
         self.page.screenshot(path=path)
